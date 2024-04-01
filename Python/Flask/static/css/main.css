@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: burlywood;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.page-head,
+.description {
+  text-align: center;
+}
+
+.page-head {
+  color: red;
+}
+.description {
+  color: #683d2d;
+  font-size: 20px;
+  font-weight: bold;
+}

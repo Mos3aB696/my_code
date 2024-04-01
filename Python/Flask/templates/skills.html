@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block head%}
+
+<link
+  rel="stylesheet"
+  href=" {{ url_for('static', filename='css/skills.css')}}"
+/>
+
+{% endblock %} {% block body %}
+<h1 class="page-head">{{ page_head }}</h1>
+<p class="description">{{ description }}</p>
+
+{% for skill in data %}
+<div class="skill-box">
+  <div class="skill-name">{{ skill[0] }}</div>
+  <div class="skill-level">
+    <span style="width: {{ skill[1] }}%"> </span>
+  </div>
+</div>
+
+{% endfor %} {% endblock body %}

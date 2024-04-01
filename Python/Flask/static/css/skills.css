@@ -1,0 +1,26 @@
+.skill-box {
+  width: 400px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 10px 20px;
+}
+
+.skill-box .skill-name {
+  text-align: center;
+  padding: 0 0 10px 0;
+  color: green;
+}
+.skill-box .skill-level {
+  background-color: #f6f6f6;
+  position: relative;
+  padding: 10px;
+}
+
+.skill-box .skill-level span {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #FF5722;
+}
