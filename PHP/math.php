@@ -109,6 +109,42 @@ echo round(4.50, 0, PHP_ROUND_HALF_EVEN) . "<br>";
 
 echo round(5.50, 0, PHP_ROUND_HALF_ODD) . "<br>";
 echo round(4.50, 0, PHP_ROUND_HALF_ODD) . "<br>";
+
+echo "<hr>";
+
+/*
+  Math Functions
+
+  - sqrt(Number[Required])
+  --- Square Root
+
+  - min(array[Required]) || min(Values[Required])
+  --- Find Lowest Value
+
+  - max(array[Required]) || min(Values[Required])
+  --- Find Highest Value
+*/
+
+// Return The Square Root Of A Number
+echo sqrt(16) . " | "; // 4
+echo sqrt(25) . " | "; // 5
+echo sqrt(100) . "<br>"; // 10
+
+// Find The Lowest Value
+echo min(10, 20, -40, -30, 50) . "<br>"; // -40
+echo min([10, 20, -40, -30, 50]) . "<br>"; // -40
+
+echo "<pre>";
+print_r(min([1, 3, 5], [1, 2, 6]));
+echo "</pre>";
+
+// Find The Highest Value
+echo max(10, 20, -40, -30, 50) . "<br>"; // 50
+echo max([10, 20, -40, -30, 50]) . "<br>"; // 50
+
+echo "<pre>";
+print_r(max([1, 3, 5], [1, 2, 6]));
+echo "</pre>";
 ?>
 
 <!DOCTYPE html>
