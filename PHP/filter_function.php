@@ -134,6 +134,79 @@ var_dump(
   )
 );
 
+echo "<hr>";
+
+/*
+  Filter Functions (Sanitize)
+
+  Sanitize Filters => It's Used To Sanitize The Data And Remove All Unwanted Characters
+
+  - filter_var(Value[Required], Filter[Optional], Options[Optional])
+  --- Sanitize Filters
+
+  ------ FILTER_SANITIZE_EMAIL
+  ------ Remove All But Letters + Digits + !#$%&#038;'*+-=?^_`{|}~@.[]
+  ------ Test ¥
+
+  ------ FILTER_SANITIZE_NUMBER_INT
+  --------- Remove All But Digits, +, -
+
+  ------ FILTER_SANITIZE_NUMBER_FLOAT
+  --------- Remove ALL But Digits, +, - And Optionally [.,eE]
+  --------- Flags => FILTER_FLAG_ALLOW_THOUSAND
+  --------- Flags => FILTER_FLAG_ALLOW_FRACTION
+
+  ------ FILTER_SANITIZE_URL
+  ------ Remove All But Letters + Digits + $-_.+!*'(),{}|\\^~[]`<>#%";/?:@&=.
+  ------ Test ¥ + Space
+*/
+$email = "o@n  ¥   n.sa";
+
+var_dump(filter_var($email, FILTER_SANITIZE_EMAIL));
+
+echo "<br>";
+
+$int = "100 + !@@@LHKLJKJFKLJKLJFKL  f;ldkf;lsdkfl;ksdf;lkdsf===-100";
+
+var_dump(filter_var($int, FILTER_SANITIZE_NUMBER_INT));
+
+echo "<br>";
+
+$float = "1,950,150.65AAASSS    sdfdsfsdfsdf@@@@41";
+
+var_dump(
+  filter_var(
+    $float,
+    FILTER_SANITIZE_NUMBER_FLOAT,
+    ["flags" => FILTER_FLAG_ALLOW_THOUSAND | FILTER_FLAG_ALLOW_FRACTION]
+  )
+);
+
+echo "<br>";
+
+$url = "https://el         zer¥¥¥¥¥o.org";
+
+var_dump(filter_var($url, FILTER_SANITIZE_URL));
+
+echo "<hr>";
+
+/*
+  Filter Functions
+
+  - filter_input(Type[Required], Value[Required], Filter[Optional], Options[Optional])
+  --- INPUT_GET
+  --- INPUT_POST
+  --- INPUT_COOKIE
+  --- INPUT_SERVER
+  --- INPUT_ENV
+
+  -- FILTER_VALIDATE_INT
+  -- FILTER_NULL_ON_FAILURE
+*/
+// echo $_GET["num"] . "<br>";
+
+// You Can Use Any Filter (Validate Or Sanitize) With filter_input (This Is Amazing!!!!)
+echo filter_input(INPUT_GET, "num", FILTER_SANITIZE_NUMBER_INT);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -145,14 +218,20 @@ var_dump(
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #1f1f1f;
+      /*background-color: #1f1f1f;
       padding: 20px;
-      color: #fff;
+      color: #fff;*/
     }
   </style>
 </head>
 
 <body>
+
+  <form action="" method="GET">
+    <input type="text" name="num">
+    <br>
+    <input type="submit" value="Send">
+  </form>
 
 </body>
 
