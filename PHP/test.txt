@@ -1,2 +1,4 @@
 Hello From Text
 Hello World
+PHP Is Awesome
+Life Is Short
